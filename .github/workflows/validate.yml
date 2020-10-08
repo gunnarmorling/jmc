@@ -11,6 +11,12 @@ jobs:
       with:
         java-version: '11'
         java-package: jdk
+    - name: Cache Maven packages
+      uses: actions/cache@v1
+      with:
+        path: ~/.m2
+        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+        restore-keys: ${{ runner.os }}-m2
     - name: Check formatting
       run: ./scripts/checkformatting.sh
     - name: Run core tests
@@ -26,6 +32,12 @@ jobs:
       with:
         java-version: '11'
         java-package: jdk
+    - name: Cache Maven packages
+      uses: actions/cache@v1
+      with:
+        path: ~/.m2
+        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+        restore-keys: ${{ runner.os }}-m2
     - name: Check formatting
       run: ./scripts/checkformatting.sh
     - name: Run core tests
@@ -41,6 +53,12 @@ jobs:
       with:
         java-version: '11'
         java-package: jdk
+    - name: Cache Maven packages
+      uses: actions/cache@v1
+      with:
+        path: ~/.m2
+        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+        restore-keys: ${{ runner.os }}-m2
     - name: Check formatting
       run: .\scripts\checkformatting.bat
       shell: cmd
